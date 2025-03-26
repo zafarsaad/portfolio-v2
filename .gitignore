@@ -1,0 +1,4 @@
+node_modules
+src/components/MailchimpForm.js
+src/components/Contact.js
+.DS_Store
