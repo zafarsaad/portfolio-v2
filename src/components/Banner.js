@@ -6,18 +6,20 @@ import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 
 export const Banner = () => {
+
+  // const [index, setIndex] = useState(1);
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
+  const toRotate = ["Software Engineer", "Web Developer", "UI/UX Developer"];
   const [text, setText] = useState('');
-  const [delta, setDelta] = useState(300 - Math.random() * 100);
-  const [index, setIndex] = useState(1);
-  const toRotate = ["Frontend Engineer", "Fullstack", "UI/UX Designer"];
-  const period = 2000;
+
+  const [delta, setDelta] = useState(150 - Math.random() * 100);
+  const period = 1000;
 
   useEffect(() => {
     let ticker = setInterval(() => {
       tick();
-    }, delta);
+    }, delta)
 
     return () => { clearInterval(ticker) };
   }, [text])
@@ -35,15 +37,15 @@ export const Banner = () => {
 
     if (!isDeleting && updatedText === fullText) {
       setIsDeleting(true);
-      setIndex(prevIndex => prevIndex - 1);
+      // setIndex(prevIndex => prevIndex - 1);
       setDelta(period);
     } else if (isDeleting && updatedText === '') {
       setIsDeleting(false);
       setLoopNum(loopNum + 1);
-      setIndex(1);
-      setDelta(500);
+      // setIndex(1);
+      setDelta(150 - Math.random() * 100);
     } else {
-      setIndex(prevIndex => prevIndex + 1);
+      // setIndex(prevIndex => prevIndex + 1);
     }
   }
 
@@ -54,18 +56,20 @@ export const Banner = () => {
           <Col xs={12} md={6} xl={7}>
             <TrackVisibility>
               {({ isVisible }) =>
-                <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
+                <div className={isVisible ? "animate__animated" : ""}>
                   <span className="tagline">Welcome to my Portfolio</span>
-                  <h1>{`Hi! I'm Saad Zafar`} <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Web Developer", "Web Designer", "UI/UX Designer" ]'><span className="wrap">{text}</span></span></h1>
-                  <p>Results-driven Software Engineer with 10+ years of experience building scalable, high-performance applications. Proficient in React, Next.js, Angular as well as Java and Python. Passionate about optimizing for scalability, cloud integration, and AI/ML applications to enhance user experience and business impact.</p>
-
+                  <h1>{`Hi! I'm Saad,`}
+                  </h1>
+                  <h2>a <span className="wrap">{text}</span></h2>
+                  <p>Results-driven Software Engineer with 10+ years of experience building scalable, high-performance applications. Proficient in Frontend Technologies as well as Backend.</p>
+                  <p>Passionate about optimizing for scalability, cloud integration, and AI/ML applications to enhance user experience and business impact.</p>
                 </div>}
             </TrackVisibility>
           </Col>
           <Col xs={12} md={6} xl={5}>
             <TrackVisibility>
               {({ isVisible }) =>
-                <div className={isVisible ? "animate__animated animate__zoomIn" : ""}>
+                <div className={isVisible ? "animate__animated animate__headShake" : ""}>
                   <img src={headerImg} alt="Header Img" />
                 </div>}
             </TrackVisibility>
@@ -74,4 +78,5 @@ export const Banner = () => {
       </Container>
     </section>
   )
+
 }

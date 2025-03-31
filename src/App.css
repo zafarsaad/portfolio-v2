@@ -124,6 +124,26 @@ span.navbar-text {
   display: flex;
   align-items: center;
 }
+.profile-picture {
+  border-radius: 50%;
+}
+.profile-picture:hover {
+  transform: scale(2);
+  transition: transform 0.5s ease-in-out;
+}
+.profile-picture-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* width: min(20vw, 100px); */
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+.profile-picture-container-footer {
+  width: 10vh;
+}
 .social-icon {
   display: inline-block;
   margin-left: 14px;
@@ -626,9 +646,9 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   letter-spacing: 0.5px;
   border-radius: 18px;
 }
-.footer img {
+/* .footer img {
   width: 26%;
-}
+} */
 .footer .container {
   padding-top: 50px;
 }
